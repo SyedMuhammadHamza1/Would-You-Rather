@@ -17,7 +17,7 @@ class NavBar extends Component {
     console.log(users, "users");
     console.log(auth, "auth");
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
           Would You Rather
         </a>
@@ -51,7 +51,7 @@ class NavBar extends Component {
             </li>
           </ul>
           <ul class="navbar-nav ml-auto nav-flex-icons">
-            <li class="nav-item avatar">
+            <li class="nav-item avatar mr-5">
               <a class="nav-link p-0" href="#">
                 <img
                   src={users[auth].avatarURL}

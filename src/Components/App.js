@@ -4,6 +4,7 @@ import { handleInitialData } from "../Redux/Actions/sharedAction"; // <- new
 import { connect } from "react-redux"; // <- new
 import Login from "./Login";
 import NavBar from "./NavBar";
+import MainDashboard from "./MainDashbord";
 
 class App extends Component {
   componentDidMount() {
@@ -21,7 +22,7 @@ class App extends Component {
             <React.Fragment>
               <NavBar />
               <ContentGrid>
-                {/* <Route exact path="/" component={Home} /> */}
+                <Route exact path="/" component={MainDashboard} />
               </ContentGrid>
             </React.Fragment>
           )}
