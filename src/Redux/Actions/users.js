@@ -1,5 +1,3 @@
-import { GET_QUESTIONS } from "./questions";
-
 export const GET_USERS = "GET_USERS";
 
 export function getUsers(users) {

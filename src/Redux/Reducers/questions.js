@@ -1,6 +1,6 @@
 import { GET_QUESTIONS } from "../Actions/questions";
 
-export default function authUser(state = {}, action) {
+export default function questions(state = {}, action) {
   switch (action.type) {
     case GET_QUESTIONS:
       return {

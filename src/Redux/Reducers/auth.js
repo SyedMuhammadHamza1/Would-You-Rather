@@ -1,6 +1,6 @@
 import { SET_AUTH } from "../Actions/auth";
 
-export default function authUser(state = null, action) {
+export default function auth(state = null, action) {
   if (action.type === SET_AUTH) {
     return action.id;
   }
