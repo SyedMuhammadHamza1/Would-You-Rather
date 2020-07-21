@@ -37,19 +37,25 @@ class NavBar extends Component {
           <ul class="navbar-nav mr-auto">
             <Link to="/">
               <li class="nav-item active">
-                Home <span class="sr-only">(current)</span>
+                <a class="nav-link" href="#">
+                  Home <span class="sr-only">(current)</span>
+                </a>
               </li>
             </Link>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                New Pole
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                LeaderBoard
-              </a>
-            </li>
+            <Link to="/add">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  New Pole
+                </a>
+              </li>
+            </Link>
+            <Link to="/leaderboard">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  LeaderBoard
+                </a>
+              </li>
+            </Link>
           </ul>
           <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item avatar mr-5">

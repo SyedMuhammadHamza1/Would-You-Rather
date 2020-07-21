@@ -37,11 +37,23 @@ class UserCard extends Component {
         <div class="col-md-7">
           <div class="card shadow p-3 mb-5 bg-white rounded">
             <div class="card-header">{author.name} Ask:</div>
-            <PollContent
-              pollType={pollType}
-              question={question}
-              unanswered={unanswered}
-            />
+            <div class="card-body">
+              <div class="row justify-content-center">
+                <div class="col-md-3">
+                  <img
+                    src={author.avatarURL}
+                    class="rounded-circle z-depth-0"
+                    alt="avatar image"
+                    height="160"
+                  />
+                </div>
+                <PollContent
+                  pollType={pollType}
+                  question={question}
+                  unanswered={unanswered}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

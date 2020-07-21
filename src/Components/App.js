@@ -6,6 +6,8 @@ import Login from "./Login";
 import NavBar from "./NavBar";
 import MainDashboard from "./MainDashbord";
 import UserCard from "./UserCard";
+import CreateQuestion from "./CreateQuestion";
+import LeaderBoard from "./LeaderBoard";
 
 class App extends Component {
   componentDidMount() {
@@ -26,6 +28,8 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={MainDashboard} />
                   <Route path="/questions/:question_id" component={UserCard} />
+                  <Route path="/add" component={CreateQuestion} />
+                  <Route path="/leaderboard" component={LeaderBoard} />
                 </Switch>
               </ContentGrid>
             </React.Fragment>

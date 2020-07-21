@@ -19,22 +19,19 @@ class Questions extends Component {
       return <Redirect push to={`/questions/${question.id}`} />;
     }
     return (
-      <div class="card-body text-center">
-        <h3> Would you rather</h3> <br />{" "}
-        <p style={{ textAlign: "center" }}>
-          {question.optionOne.text}
-          <br />
-          or...
-        </p>{" "}
-        <button
-          className={classCheck}
-          size="tiny"
-          fluid
-          onClick={this.handleClick}
-        >
-          {unanswered === true ? "Answer Poll" : "Results"}{" "}
-        </button>
-      </div>
+      <React.Fragment>
+        <div class="col-md-9 text-center">
+          <h3> Would you rather</h3> <br />{" "}
+          <p style={{ textAlign: "center" }}>
+            {question.optionOne.text}
+            <br />
+            or...
+          </p>{" "}
+          <button className={classCheck} size="tiny" onClick={this.handleClick}>
+            {unanswered === true ? "Answer Poll" : "Results"}{" "}
+          </button>
+        </div>
+      </React.Fragment>
     );
   }
 }
