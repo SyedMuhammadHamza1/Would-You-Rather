@@ -3,6 +3,7 @@ import Questions from "./Questions";
 import { connect } from "react-redux";
 import AnswerQuestion from "./AnswerQuestion";
 import QuestionResult from "./QuestionResult";
+import { Redirect } from "react-router-dom";
 
 const pollTypes = {
   POLL_TEASER: "POLL_TEASER",
@@ -31,7 +32,16 @@ class UserCard extends Component {
     this.state = {};
   }
   render() {
-    const { author, question, pollType, unanswered = null } = this.props;
+    const {
+      author,
+      question,
+      pollType,
+      badPath,
+      unanswered = null,
+    } = this.props;
+    if (badPath === true) {
+      return <Redirect to="/questions/wrong" />;
+    }
     return (
       <div class="row pb-2 justify-content-center">
         <div class="col-md-7">
@@ -62,23 +72,32 @@ class UserCard extends Component {
 }
 
 function mapStateToProps({ users, questions, auth }, { match, question_id }) {
-  let question, pollType;
+  let question,
+    author,
+    pollType,
+    badPath = false;
   if (question_id !== undefined) {
     question = questions[question_id];
+    author = users[question.author];
     pollType = pollTypes.POLL_TEASER;
   } else {
     const { question_id } = match.params;
     question = questions[question_id];
     const user = users[auth];
 
-    pollType = pollTypes.POLL_QUESTION;
-    if (Object.keys(user.answers).includes(question.id)) {
-      pollType = pollTypes.POLL_RESULT;
+    if (question === undefined) {
+      badPath = true;
+    } else {
+      author = users[question.author];
+      pollType = pollTypes.POLL_QUESTION;
+      if (Object.keys(user.answers).includes(question.id)) {
+        pollType = pollTypes.POLL_RESULT;
+      }
     }
   }
-  const author = users[question.author];
 
   return {
+    badPath,
     question,
     author,
     pollType,

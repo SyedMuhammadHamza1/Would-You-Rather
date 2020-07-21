@@ -19,9 +19,7 @@ class NavBar extends Component {
     console.log(auth, "auth");
     return (
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-          Would You Rather
-        </a>
+        <h5 className="text-primary">Would You Rather</h5>
         <button
           class="navbar-toggler"
           type="button"
@@ -38,7 +36,7 @@ class NavBar extends Component {
             <Link to="/">
               <li class="nav-item active">
                 <a class="nav-link" href="#">
-                  Home <span class="sr-only">(current)</span>
+                  Home
                 </a>
               </li>
             </Link>
@@ -66,7 +64,7 @@ class NavBar extends Component {
                   alt="avatar image"
                   height="35"
                 />
-                <span>{users[auth].name}</span>
+                <span className="ml-2">{users[auth].name}</span>
               </a>
             </li>
             <li>

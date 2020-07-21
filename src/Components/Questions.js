@@ -27,7 +27,15 @@ class Questions extends Component {
             <br />
             or...
           </p>{" "}
-          <button className={classCheck} size="tiny" onClick={this.handleClick}>
+          <button
+            className={
+              unanswered === true
+                ? "btn btn-primary btn-block"
+                : "btn btn-warning btn-block"
+            }
+            size="tiny"
+            onClick={this.handleClick}
+          >
             {unanswered === true ? "Answer Poll" : "Results"}{" "}
           </button>
         </div>

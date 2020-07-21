@@ -30,34 +30,30 @@ export class AnswerQuestion extends Component {
 
     return (
       <Fragment>
-        <div class="card-body text-center">
-          <h3> Would you rather</h3> <br />
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-6">
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="radio"
-                name="radioGroup"
-                value="optionOne"
-                checked={this.state.value === "optionOne"}
-                onChange={this.handleChange}
-              />
-              <label>{question.optionOne.text}</label>
-              <br />
-              <input
-                type="radio"
-                name="radioGroup"
-                value="optionTwo"
-                checked={this.state.value === "optionTwo"}
-                onChange={this.handleChange}
-              />
-              <label>{question.optionTwo.text}</label> <br />
-              <button className="btn btn-primary" disabled={disabled}>
-                Submit
-              </button>
-            </form>
-          </div>
+        <div class="col-md-9">
+          <h3 class="text-center"> Would you rather</h3> <br />
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="radio"
+              name="radioGroup"
+              value="optionOne"
+              checked={this.state.value === "optionOne"}
+              onChange={this.handleChange}
+            />
+            <label>{question.optionOne.text}</label>
+            <br />
+            <input
+              type="radio"
+              name="radioGroup"
+              value="optionTwo"
+              checked={this.state.value === "optionTwo"}
+              onChange={this.handleChange}
+            />
+            <label>{question.optionTwo.text}</label> <br />
+            <button className="btn btn-primary btn-block" disabled={disabled}>
+              Submit
+            </button>
+          </form>
         </div>
       </Fragment>
     );
