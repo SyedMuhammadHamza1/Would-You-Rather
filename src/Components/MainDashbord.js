@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Questions from "./Questions";
+import UserCard from "./UserCard";
 class MainDashboard extends Component {
   constructor(props) {
     super(props);
@@ -41,36 +42,22 @@ class MainDashboard extends Component {
               <div id="home1" class="tab-pane fade active show">
                 {userQuestionData.unanswered.map((item, index) => {
                   return (
-                    <div class="row pb-2" key={index}>
-                      <div class="col-md-7">
-                        <div class="card shadow p-3 mb-5 bg-white rounded">
-                          <div class="card-header">{item.author} Ask:</div>
-                          <Questions
-                            question={item}
-                            unanswered={true}
-                            classCheck={"btn btn-primary"}
-                          />
-                        </div>
-                      </div>
-                    </div>
+                    <UserCard
+                      key={item.id}
+                      question_id={item.id}
+                      unanswered={true}
+                    />
                   );
                 })}
               </div>
               <div id="profile1" class="tab-pane fade">
                 {userQuestionData.answered.map((item, index) => {
                   return (
-                    <div class="row pb-2" key={index}>
-                      <div class="col-md-7">
-                        <div class="card shadow p-3 mb-5 bg-white rounded">
-                          <div class="card-header">{item.author} Ask:</div>
-                          <Questions
-                            question={item}
-                            unanswered={false}
-                            classCheck={"btn btn-warning"}
-                          />
-                        </div>
-                      </div>
-                    </div>
+                    <UserCard
+                      key={item.id}
+                      question_id={item.id}
+                      unanswered={false}
+                    />
                   );
                 })}
               </div>

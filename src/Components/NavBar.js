@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { setUserAuth } from "../Redux/Actions/auth";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
   constructor(props) {
@@ -34,11 +35,11 @@ class NavBar extends Component {
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
+            <Link to="/">
+              <li class="nav-item active">
                 Home <span class="sr-only">(current)</span>
-              </a>
-            </li>
+              </li>
+            </Link>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 New Pole

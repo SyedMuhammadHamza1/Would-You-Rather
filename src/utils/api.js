@@ -18,6 +18,7 @@ export function saveQuestion(info) {
   return _saveQuestion(info);
 }
 
-export function saveQuestionAnswer(info) {
-  return _saveQuestionAnswer(info);
+export function saveQuestionAnswer(auth, qid, answer) {
+  debugger;
+  return _saveQuestionAnswer({ auth, qid, answer });
 }
