@@ -14,13 +14,13 @@ class Questions extends Component {
     }));
   };
   render() {
-    const { question, unanswered, classCheck } = this.props;
+    const { question, unanswered } = this.props;
     if (this.state.viewPoll === true) {
       return <Redirect push to={`/questions/${question.id}`} />;
     }
     return (
       <React.Fragment>
-        <div class="col-md-9 text-center">
+        <div className="col-md-9 text-center">
           <h3> Would you rather</h3> <br />{" "}
           <p style={{ textAlign: "center" }}>
             {question.optionOne.text}

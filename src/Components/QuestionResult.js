@@ -20,24 +20,16 @@ export class QuestionResult extends Component {
     const votesTotal = optionOneVotes + optionTwoVotes;
     const userVote = user.answers[question.id];
 
-    // let option1 = styles.secondary,
-    //   option2 = styles.secondary;
-    // if (optionOneVotes > optionTwoVotes) {
-    //   option1 = styles.primary;
-    // } else if (optionTwoVotes > optionOneVotes) {
-    //   option2 = styles.primary;
-    // }
-
     return (
       <Fragment>
-        <div class="card-body">
+        <div className="card-body">
           <h4>Results: Would you rather</h4>
           <div style={{ border: "solid", borderColor: "black" }}>
             {userVote === "optionOne" && <YourVoteLabel />}
             <p style={{ fontWeight: "bold" }}>{question.optionOne.text}</p>
-            <div class="progress" style={{ height: 40 }}>
+            <div className="progress" style={{ height: 40 }}>
               <div
-                class="progress-bar"
+                className="progress-bar"
                 role="progressbar"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -48,7 +40,7 @@ export class QuestionResult extends Component {
                 {((optionOneVotes / votesTotal) * 100).toFixed(2)}
               </div>
             </div>
-            <div class="text-center">
+            <div className="text-center">
               <label>
                 {" "}
                 {optionOneVotes} out of {votesTotal} votes
@@ -59,9 +51,9 @@ export class QuestionResult extends Component {
             {userVote === "optionTwo" && <YourVoteLabel />}
 
             <p style={{ fontWeight: "bold" }}>{question.optionTwo.text}</p>
-            <div class="progress" style={{ height: 40 }}>
+            <div className="progress" style={{ height: 40 }}>
               <div
-                class="progress-bar"
+                className="progress-bar"
                 role="progressbar"
                 aria-valuemin="0"
                 aria-valuemax="100"
@@ -72,7 +64,7 @@ export class QuestionResult extends Component {
                 {((optionTwoVotes / votesTotal) * 100).toFixed(2)}
               </div>
             </div>
-            <div class="text-center">
+            <div className="text-center">
               <label>
                 {optionTwoVotes} out of {votesTotal} votes
               </label>

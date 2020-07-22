@@ -18,10 +18,10 @@ class NavBar extends Component {
     console.log(users, "users");
     console.log(auth, "auth");
     return (
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <h5 className="text-primary">Would You Rather</h5>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarText"
@@ -29,43 +29,35 @@ class NavBar extends Component {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
+        <div className="collapse navbar-collapse" id="navbarText">
+          <ul className="navbar-nav mr-auto">
             <Link to="/">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">
-                  Home
-                </a>
+              <li className="nav-item active">
+                <label className="nav-link">Home</label>
               </li>
             </Link>
             <Link to="/add">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  New Pole
-                </a>
+              <li className="nav-item">
+                <label className="nav-link">New Pole</label>
               </li>
             </Link>
             <Link to="/leaderboard">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  LeaderBoard
-                </a>
+              <li className="nav-item">
+                <label className="nav-link">LeaderBoard</label>
               </li>
             </Link>
           </ul>
-          <ul class="navbar-nav ml-auto nav-flex-icons">
-            <li class="nav-item avatar mr-5">
-              <a class="nav-link p-0" href="#">
-                <img
-                  src={users[auth].avatarURL}
-                  class="rounded-circle z-depth-0"
-                  alt="avatar image"
-                  height="35"
-                />
-                <span className="ml-2">{users[auth].name}</span>
-              </a>
+          <ul className="navbar-nav ml-auto nav-flex-icons">
+            <li className="nav-item avatar mr-5">
+              <img
+                src={users[auth].avatarURL}
+                className="rounded-circle z-depth-0"
+                alt="avatar image"
+                height="35"
+              />
+              <span className="ml-2">{users[auth].name}</span>
             </li>
             <li>
               <button className="btn btn-primary" onClick={this.onLogout}>

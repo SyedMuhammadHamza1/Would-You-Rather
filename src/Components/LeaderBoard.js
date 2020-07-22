@@ -1,29 +1,27 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 
-const trophyColor = ["yellow", "grey", "orange"];
-
 export class Leaderboard extends Component {
   render() {
     const { leaderboardData } = this.props;
 
     return (
       <Fragment>
-        {leaderboardData.map((user, idx) => (
-          <div class="row pb-2 justify-content-center">
-            <div class="col-md-7">
-              <div class="card shadow p-3 mb-5 bg-white rounded">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-md-3">
+        {leaderboardData.map((user, key) => (
+          <div key={key} className="row pb-2 justify-content-center">
+            <div className="col-md-7">
+              <div className="card shadow p-3 mb-5 bg-white rounded">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-md-3">
                       <img
                         src={user.avatarURL}
-                        class="rounded-circle z-depth-0"
+                        className="rounded-circle z-depth-0"
                         alt="avatar image"
                         height="160"
                       />
                     </div>
-                    <div class="col-md-5">
+                    <div className="col-md-5">
                       <h3>{user.name}</h3>
                       <br />
                       <label>Answered Question</label>
@@ -43,9 +41,9 @@ export class Leaderboard extends Component {
                         &nbsp;&nbsp;{user.questionCount}
                       </label>
                     </div>
-                    <div class="col-md-3 text-center">
-                      <div class="card shadow p-3 mb-5 bg-white rounded">
-                        <div class="card-body">
+                    <div className="col-md-3 text-center">
+                      <div className="card shadow p-3 mb-5 bg-white rounded">
+                        <div className="card-body">
                           <label>Score</label>
                           <div
                             style={{
@@ -89,7 +87,6 @@ function mapStateToProps({ users }) {
     .sort((a, b) => a.total - b.total)
     .reverse()
     .slice(0, 3);
-  console.log("leaderboardData", leaderboardData);
   return {
     leaderboardData,
   };

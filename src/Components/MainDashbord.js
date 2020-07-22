@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Questions from "./Questions";
 import UserCard from "./UserCard";
 class MainDashboard extends Component {
   constructor(props) {
@@ -9,37 +8,34 @@ class MainDashboard extends Component {
   }
   render() {
     const { userQuestionData } = this.props;
-    console.log("users question", userQuestionData);
     return (
-      <section class="container py-4">
-        <div class="row">
-          <div class="col-md-12">
+      <section className="container py-4">
+        <div className="row">
+          <div className="col-md-12">
             <h2>Tabs</h2>
-            <ul id="tabs" class="nav nav-tabs">
-              <li class="nav-item">
+            <ul id="tabs" className="nav nav-tabs">
+              <li className="nav-item">
                 <a
-                  href=""
                   data-target="#home1"
                   data-toggle="tab"
-                  class="nav-link small text-uppercase active"
+                  className="nav-link small text-uppercase active"
                 >
                   Unanswered
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
-                  href=""
                   data-target="#profile1"
                   data-toggle="tab"
-                  class="nav-link small text-uppercase"
+                  className="nav-link small text-uppercase"
                 >
                   Answered
                 </a>
               </li>
             </ul>
             <br />
-            <div id="tabsContent" class="tab-content">
-              <div id="home1" class="tab-pane fade active show">
+            <div id="tabsContent" className="tab-content">
+              <div id="home1" className="tab-pane fade active show">
                 {userQuestionData.unanswered.map((item, index) => {
                   return (
                     <UserCard
@@ -50,7 +46,7 @@ class MainDashboard extends Component {
                   );
                 })}
               </div>
-              <div id="profile1" class="tab-pane fade">
+              <div id="profile1" className="tab-pane fade">
                 {userQuestionData.answered.map((item, index) => {
                   return (
                     <UserCard

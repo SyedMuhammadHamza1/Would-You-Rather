@@ -11,13 +11,11 @@ class Login extends Component {
     };
   }
   dropChange = (e) => {
-    console.log(e.target.value);
     this.setState({
       userId: e.target.value,
     });
   };
   handleSubmit = (e) => {
-    debugger;
     e.preventDefault();
     this.props.setUserAuth(this.state.userId);
   };
@@ -26,9 +24,9 @@ class Login extends Component {
     const { userId } = this.state;
     return (
       <div>
-        <div class="wrapper fadeInDown">
+        <div className="wrapper fadeInDown">
           <div id="formContent">
-            <div class="fadeIn first">
+            <div className="fadeIn first">
               <h6>Welcome to</h6>
               <h4>Would You Rather</h4>
             </div>
@@ -37,7 +35,7 @@ class Login extends Component {
               <select
                 onChange={this.dropChange}
                 value={userId}
-                class="form-control"
+                className="form-control"
                 name="cars"
                 id="cars"
               >
@@ -54,7 +52,7 @@ class Login extends Component {
 
               <input
                 type="submit"
-                class="fadeIn fourth"
+                className="fadeIn fourth"
                 disabled={userId === "" ? true : false}
                 value="Log In"
               />

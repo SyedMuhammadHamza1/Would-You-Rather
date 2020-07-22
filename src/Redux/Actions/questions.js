@@ -28,8 +28,7 @@ function addQuestion(question) {
   };
 }
 
-export function handleSaveQuestion(optionOneText, optionTwoText, author) {
-  debugger;
+export function createQuestionhandler(optionOneText, optionTwoText, author) {
   return (dispatch) => {
     return saveQuestion({ optionOneText, optionTwoText, author }).then(
       (question) => {

@@ -28,14 +28,14 @@ export function addQuestionForUser({ id, author }) {
   };
 }
 
-export function handleSaveQuestionAnswer(auth, qid, answer) {
+export function answerQuestionHandle(auth, qid, answer) {
   debugger;
   return (dispatch) => {
     dispatch(addAnswerToUser(auth, qid, answer));
     dispatch(addAnswerToQuestion(auth, qid, answer));
 
     return saveQuestionAnswer(auth, qid, answer).catch((e) => {
-      console.warn("Error in handleSaveQuestionAnswer:", e);
+      console.warn("Error:", e);
     });
   };
 }

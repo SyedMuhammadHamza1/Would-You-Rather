@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { handleInitialData } from "../Redux/Actions/sharedAction"; // <- new
-import { connect } from "react-redux"; // <- new
+import { landingData } from "../Redux/Actions/sharedAction";
+import { connect } from "react-redux";
 import Login from "./Login";
 import NavBar from "./NavBar";
 import MainDashboard from "./MainDashbord";
@@ -12,9 +12,8 @@ import WrongPath from "./WrongPath";
 
 class App extends Component {
   componentDidMount() {
-    // <- new
-    this.props.handleInitialData(); // <- new
-  } // <- new
+    this.props.landingData();
+  }
   render() {
     const { auth } = this.props;
     return (
@@ -51,4 +50,4 @@ function mapStateToProps({ auth }) {
   };
 }
 
-export default connect(mapStateToProps, { handleInitialData })(App);
+export default connect(mapStateToProps, { landingData })(App);

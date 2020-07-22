@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
-import { handleSaveQuestionAnswer } from "../Redux/Actions/users";
+import { answerQuestionHandle } from "../Redux/Actions/users";
 
 export class AnswerQuestion extends Component {
   constructor(props) {
@@ -18,20 +18,19 @@ export class AnswerQuestion extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.value !== "") {
-      const { auth, question, handleSaveQuestionAnswer } = this.props;
-      handleSaveQuestionAnswer(auth, question.id, this.state.value);
+      const { auth, question, answerQuestionHandle } = this.props;
+      answerQuestionHandle(auth, question.id, this.state.value);
     }
   };
 
   render() {
-    console.log("All Props", this.props);
     const { question } = this.props;
     const disabled = this.state.value === "" ? true : false;
 
     return (
       <Fragment>
-        <div class="col-md-9">
-          <h3 class="text-center"> Would you rather</h3> <br />
+        <div className="col-md-9">
+          <h3 className="text-center"> Would you rather</h3> <br />
           <form onSubmit={this.handleSubmit}>
             <input
               type="radio"
@@ -66,6 +65,6 @@ function mapStateToProps({ auth }) {
   };
 }
 
-export default connect(mapStateToProps, { handleSaveQuestionAnswer })(
+export default connect(mapStateToProps, { answerQuestionHandle })(
   AnswerQuestion
 );

@@ -6,20 +6,20 @@ import QuestionResult from "./QuestionResult";
 import { Redirect } from "react-router-dom";
 
 const pollTypes = {
-  POLL_TEASER: "POLL_TEASER",
-  POLL_QUESTION: "POLL_QUESTION",
-  POLL_RESULT: "POLL_RESULT",
+  ALL_QUESTIONS: "ALL_QUESTIONS",
+  ALL_ANSWERS: "ALL_ANSWERS",
+  ALL_RESULTS: "ALL_RESULTS",
 };
 
 const PollContent = (props) => {
   const { pollType, question, unanswered } = props;
 
   switch (pollType) {
-    case pollTypes.POLL_TEASER:
+    case pollTypes.ALL_QUESTIONS:
       return <Questions question={question} unanswered={unanswered} />;
-    case pollTypes.POLL_QUESTION:
+    case pollTypes.ALL_ANSWERS:
       return <AnswerQuestion question={question} />;
-    case pollTypes.POLL_RESULT:
+    case pollTypes.ALL_RESULTS:
       return <QuestionResult question={question} />;
     default:
       return;
@@ -43,16 +43,16 @@ class UserCard extends Component {
       return <Redirect to="/questions/wrong" />;
     }
     return (
-      <div class="row pb-2 justify-content-center">
-        <div class="col-md-7">
-          <div class="card shadow p-3 mb-5 bg-white rounded">
-            <div class="card-header">{author.name} Ask:</div>
-            <div class="card-body">
-              <div class="row justify-content-center">
-                <div class="col-md-3">
+      <div className="row pb-2 justify-content-center">
+        <div className="col-md-7">
+          <div className="card shadow p-3 mb-5 bg-white rounded">
+            <div className="card-header">{author.name} Ask:</div>
+            <div className="card-body">
+              <div className="row justify-content-center">
+                <div className="col-md-3">
                   <img
                     src={author.avatarURL}
-                    class="rounded-circle z-depth-0"
+                    className="rounded-circle z-depth-0"
                     alt="avatar image"
                     height="160"
                   />
@@ -79,7 +79,7 @@ function mapStateToProps({ users, questions, auth }, { match, question_id }) {
   if (question_id !== undefined) {
     question = questions[question_id];
     author = users[question.author];
-    pollType = pollTypes.POLL_TEASER;
+    pollType = pollTypes.ALL_QUESTIONS;
   } else {
     const { question_id } = match.params;
     question = questions[question_id];
@@ -89,9 +89,9 @@ function mapStateToProps({ users, questions, auth }, { match, question_id }) {
       badPath = true;
     } else {
       author = users[question.author];
-      pollType = pollTypes.POLL_QUESTION;
+      pollType = pollTypes.ALL_ANSWERS;
       if (Object.keys(user.answers).includes(question.id)) {
-        pollType = pollTypes.POLL_RESULT;
+        pollType = pollTypes.ALL_RESULTS;
       }
     }
   }
