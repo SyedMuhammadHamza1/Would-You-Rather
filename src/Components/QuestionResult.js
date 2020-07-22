@@ -4,7 +4,9 @@ import { connect } from "react-redux";
 
 const YourVoteLabel = () => (
   <div className="text-right">
-    <label className="font-weight-bold text-success">Your Vote</label>
+    <h4>
+      <span className="badge badge-success">Your Vote</span>
+    </h4>
   </div>
 );
 
@@ -24,7 +26,7 @@ export class QuestionResult extends Component {
       <Fragment>
         <div className="card-body">
           <h4>Results: Would you rather</h4>
-          <div style={{ border: "solid", borderColor: "black" }}>
+          <div className="card shadow p-3 mb-5 bg-white rounded">
             {userVote === "optionOne" && <YourVoteLabel />}
             <p style={{ fontWeight: "bold" }}>{question.optionOne.text}</p>
             <div className="progress" style={{ height: 40 }}>
@@ -37,7 +39,7 @@ export class QuestionResult extends Component {
                   width: `${((optionOneVotes / votesTotal) * 100).toFixed(2)}%`,
                 }}
               >
-                {((optionOneVotes / votesTotal) * 100).toFixed(2)}
+                {((optionOneVotes / votesTotal) * 100).toFixed(2)}%
               </div>
             </div>
             <div className="text-center">
@@ -47,7 +49,7 @@ export class QuestionResult extends Component {
               </label>
             </div>
           </div>
-          <div style={{ border: "solid", borderColor: "black", marginTop: 10 }}>
+          <div className="card shadow p-3 mb-5 bg-white rounded">
             {userVote === "optionTwo" && <YourVoteLabel />}
 
             <p style={{ fontWeight: "bold" }}>{question.optionTwo.text}</p>
@@ -61,7 +63,7 @@ export class QuestionResult extends Component {
                   width: `${((optionTwoVotes / votesTotal) * 100).toFixed(2)}%`,
                 }}
               >
-                {((optionTwoVotes / votesTotal) * 100).toFixed(2)}
+                {((optionTwoVotes / votesTotal) * 100).toFixed(2)}%
               </div>
             </div>
             <div className="text-center">
@@ -71,9 +73,7 @@ export class QuestionResult extends Component {
             </div>
           </div>
           <button
-            className="btn btn-primary mt-5 btn-lg"
-            size="tiny"
-            floated="right"
+            className="btn btn-primary float-right"
             onClick={this.handleClick}
           >
             Back
