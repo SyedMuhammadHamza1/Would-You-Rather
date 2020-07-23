@@ -27,11 +27,11 @@ class App extends Component {
               <ContentGrid>
                 <Switch>
                   <Route exact path="/" component={MainDashboard} />
+                  <Route path="/questions/wrong" component={WrongPath} />
                   <Route path="/questions/:question_id" component={UserCard} />
                   <Route path="/add" component={CreateQuestion} />
                   <Route path="/leaderboard" component={LeaderBoard} />
                   <Route component={WrongPath} />
-                  <Route path="/questions/wrong" component={WrongPath} />
                 </Switch>
               </ContentGrid>
             </React.Fragment>

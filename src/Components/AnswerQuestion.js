@@ -59,7 +59,7 @@ export class AnswerQuestion extends Component {
   }
 }
 
-function mapStateToProps({ auth }) {
+function mapStateToProps({ auth }, { match }) {
   return {
     auth,
   };
